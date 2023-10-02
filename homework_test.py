@@ -76,10 +76,8 @@ def test_find_suitable_user():
 # "Open Browser [Chrome]"
 
 def make_readable_function(func, *args):
-    capitalised_words = []
-    for word in func.__name__.split('_'):
-        capitalised_words.append(word.capitalize())
-    return f"{' '.join(capitalised_words)} [{', '.join(args)}]"
+    pretty_name = func.__name__.replace("_", " ").title()
+    return f"{pretty_name} [{', '.join(args)}]"
 
 
 def test_readable_function():
